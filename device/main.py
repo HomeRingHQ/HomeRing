@@ -27,10 +27,10 @@ Dependencies:
 
 from twilio.rest import Client
 
-TWILIO_SID = "AC115dd5648b8daa1ce2469ab3ba507781"
-TWILIO_TOKEN = "0b28741667409c7d616e5055de69d035"
-TWILIO_FROM = "+18556844343"
-FAMILY_PHONE = "+18176942512"
+TWILIO_SID = "your_twilio_sid"
+TWILIO_TOKEN = "your_twilio_token"
+TWILIO_FROM = "your_twilio_number"
+FAMILY_PHONE = "family_phone_number"
 
 import time
 import signal
