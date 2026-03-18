@@ -25,6 +25,13 @@ Dependencies:
   pip install RPi.GPIO AWSIoTPythonSDK pygame
 """
 
+from twilio.rest import Client
+
+TWILIO_SID = "AC115dd5648b8daa1ce2469ab3ba507781"
+TWILIO_TOKEN = "0b28741667409c7d616e5055de69d035"
+TWILIO_FROM = "+18556844343"
+FAMILY_PHONE = "+18176942512"
+
 import time
 import signal
 import sys
@@ -118,6 +125,15 @@ def handle_call():
     # Step 1: Read the caller's phone number from the MT8870 chip
     phone_number = read_phone_number()
 
+
+    if phone_number == "911":
+        client = Client(TWILIO_SID, TWILIO_TOKEN)
+        client.messages.create(
+            body="ALERT: 911 was just dialed from the HomeRing protected landline!",
+            from_=TWILIO_FROM,
+            to=FAMILY_PHONE
+        )
+        print("[Main] 911 detected! Alert sent to family.")
     if not phone_number:
         print("[Main] Could not read caller ID. Allowing call through by default.")
         allow_call()

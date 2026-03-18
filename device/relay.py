@@ -30,7 +30,7 @@ import RPi.GPIO as GPIO
 import time
 
 # --- Pin Definition ---
-RELAY_PIN = 18
+RELAY_PIN = 26
 
 # Set this to GPIO.HIGH if your relay activates on HIGH (most common)
 # Set this to GPIO.LOW  if your relay activates on LOW  (some modules)
